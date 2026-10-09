@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from data_loader import load_data, prepare_input
+from data_loader import load_data
 
 # 1. Page Configuration
 st.set_page_config(
@@ -167,8 +167,7 @@ payment_method = st.sidebar.selectbox("Payment Method", [
 
 predict_clicked = st.sidebar.button("Predict Churn Risk 💖")
 
-# 5. Prediction Logic
-# Simple heuristic fallback if model pipeline isn't active
+# 5. Risk Calculation Heuristic
 if contract == "Month-to-month":
     churn_prob = min(max((120 - tenure * 1.3 + (monthly_charges / 1.8)) / 100, 0.08), 0.92)
 else:
