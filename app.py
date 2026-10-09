@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from data_loader import load_data
 
 # 1. Page Configuration
 st.set_page_config(
